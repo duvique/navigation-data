@@ -1,4 +1,6 @@
-interface ISessionIdentifier {
+import { ObjectId } from 'mongodb';
+
+export interface ISessionIdentifier {
   session_id: string;
   hash_user: string;
 }
@@ -9,13 +11,19 @@ interface INavigationUrl {
   endpoint: string;
 }
 
+export type InsertedNavigation = INavigationUrl & { navigated_in: Date };
+
 export type Session = ISessionIdentifier & {
-  _id?: string;
+  _id?: ObjectId | string;
 } & {
   started_at: Date;
   updated_at: Date | null;
-  navigations: (INavigationUrl & { navigated_in: Date })[];
+  navigations: InsertedNavigation[];
 };
+
+export interface IActionResponse {
+  status: boolean;
+}
 
 export type Navigation = ISessionIdentifier &
   INavigationUrl & {
@@ -31,8 +39,20 @@ export interface IGetSessionParams {
   show_id?: boolean;
 }
 
+export interface IInsertNavigationOutput extends IActionResponse {
+  navigation: InsertedNavigation | null;
+}
+
+export interface IDeleteSession {
+  session_id: string;
+}
+
 export default interface INavigationService {
   getAllUserSessions(params: IGetAllUserSessionsParams): Promise<Session[]>;
+
   getSession(params: IGetSessionParams): Promise<Session | null>;
-  insertNavigation(navigation: Navigation): Promise<Session>;
+
+  insertNavigation(navigation: Navigation): Promise<IInsertNavigationOutput>;
+
+  deleteNavigation(params: IDeleteSession): Promise<IActionResponse>;
 }
