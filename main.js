@@ -1,5 +1,6 @@
 
 const apiUrl = 'http://localhost:3005'
+const api_token = 'a4f58ef4-2abb-46b6-ba56-740d63498d53';
 
 const main = () => {
   const { href: url, host, protocol, pathname: endpoint } = window.location;
@@ -19,6 +20,7 @@ function postNavigation(navigation) {
   const headers = new Headers();
   headers.append("Content-Type", "application/json");
   headers.append("Accept", "apllication/json");
+  headers.append("Authorization", `Bearer ${api_token}`)
 
   fetch(`${apiUrl}/navigation`, {
     method: "POST",
