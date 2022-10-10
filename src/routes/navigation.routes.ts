@@ -1,5 +1,5 @@
 import { NextFunction, Response, Request, Router } from 'express';
-import { ISessionIdentifier } from 'modules/Navegacao/Service/INavigationService';
+import { ISessionIdentifier } from '../modules/Navegacao/Service/INavigationService';
 import { navigationController } from '../modules/Navegacao';
 
 const navigationRouter = Router();

@@ -24,7 +24,8 @@
         "singleQuote": true,
         "trailingComma": "all",
         "arrowParens": "avoid",
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "bracketSpacing": true
       }
     ],
     "linebreak-style": 0,

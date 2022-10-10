@@ -2,6 +2,7 @@ import express from 'express';
 import Http from 'http';
 import cors from 'cors';
 import compression from 'compression';
+import AuthenticationMiddleware from './middlewares/AuthenticationMiddleware';
 import { notFoundMiddleware } from './middlewares/NotFoundMiddleware';
 import { exceptionMiddleware } from './middlewares/ExceptionMiddleware';
 import { navigationRouter } from './routes/navigation.routes';
@@ -20,7 +21,11 @@ export default class App {
   };
 
   private routes = async () => {
-    this.server.use('/navigation', navigationRouter);
+    this.server.use(
+      '/navigation',
+      [AuthenticationMiddleware],
+      navigationRouter,
+    );
 
     this.server.use('*', notFoundMiddleware);
     this.server.use(exceptionMiddleware);

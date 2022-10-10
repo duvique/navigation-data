@@ -60,6 +60,7 @@ export default class NavigationController {
   ) => {
     try {
       const input = req.body;
+      console.log({ input });
 
       const response = await this.service.insertNavigation(input);
 
