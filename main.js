@@ -1,5 +1,5 @@
 
-const apiUrl = 'http://localhost:3004'
+const apiUrl = 'http://localhost:3005'
 
 const main = () => {
   const { href: url, host, protocol, pathname: endpoint } = window.location;
@@ -7,7 +7,7 @@ const main = () => {
   postNavigation({
     session_id: getUuidCookie({ cookieName: "session_id", renew: true }),
     hash_user: getUuidCookie({ cookieName: "hash_user", age: 24 * 60 * 60 }),
-    created_at: new Date().toLocaleString(),// Now().toISOString().slice(0, 19).replace(/-/g, "/").replace("T", " "),
+    created_at: new Date().toLocaleString(),
     url,
     url_base: `${protocol}//${host}`,
     endpoint
@@ -59,7 +59,8 @@ function createCookie(name, value, age, renew) {
   }
 
   document.cookie = `${name}=${value}; max-age=${maxAge}; path=/;`;
+
+  return value;
 }
 
 window.onload = main;
-
