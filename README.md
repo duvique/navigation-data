@@ -7,7 +7,7 @@ O projeto possui dois componentes principais:
 Tecnologias utilizadas
 - Script: `javascript vanilla`
 - Api: `typescript`, `nodeJs`, `express`
-- Banco de dados: `MongoDB`
+- Banco de dados: `MongoDB` (Cluster do MongoDB Atlas, logo, as informações necessárias para acesso são específicas)
 
 ## Script de captação de dados
 
