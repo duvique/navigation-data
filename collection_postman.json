@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "ee265c03-63ab-42a2-8770-e6778e99ede1",
+		"name": "Requests navegação",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23531657"
+	},
+	"item": [
+		{
+			"name": "Buscar sessão",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dev}}/navigation/?session_id=session1",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"navigation",
+						""
+					],
+					"query": [
+						{
+							"key": "session_id",
+							"value": "session1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar sessões de usuário",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dev}}/navigation/?hash_user=user1",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"navigation",
+						""
+					],
+					"query": [
+						{
+							"key": "hash_user",
+							"value": "user1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inserir navegação",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session_id\": \"session1\",\r\n    \"hash_user\": \"user1\",\r\n    \"created_at\": \"09/10/2022 10:53:00\",\r\n    \"url\": \"https://dominioTeste.com/home\",\r\n    \"url_base\": \"https://dominioTeste.com\",\r\n    \"endpoint\": \"/home\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dev}}/navigation",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"navigation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar sessão",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"session_id\": \"session1\",\r\n    \"hash_user\": \"user1\",\r\n    \"created_at\": \"2022/10/09 10:49:00\",\r\n    \"url\": \"https://dominioTeste.com/home\",\r\n    \"url_base\": \"https://dominioTeste.com\",\r\n    \"endpoint\": \"/home\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dev}}/navigation/:session_id",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"navigation",
+						":session_id"
+					],
+					"variable": [
+						{
+							"key": "session_id",
+							"value": "session1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{api_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
