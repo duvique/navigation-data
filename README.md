@@ -19,7 +19,7 @@ O script atualmente possui as seguintes informações hard-coded:
  
 __Caso modifique os valores padrão, altere essas informações de acordo dentro do script__
 
-O script, ao ser adicionado em uma página, realizará a captação das mudanças de rotas através do método onLoad como citado anteriormente, utilizando `cookies` para armazenar sessoes e hashs do usuário utilizador com id's genéricos.
+O script, ao ser adicionado nas páginas alvo, realizará a captação das mudanças de rotas através do método onLoad como citado anteriormente, utilizando `cookies` para armazenar sessoes e hashs do usuário utilizador com id's genéricos.
 
 
 ## Api
